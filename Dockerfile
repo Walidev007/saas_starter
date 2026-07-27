@@ -9,7 +9,11 @@ WORKDIR /app
 COPY package*.json ./
 
 # Prefer npm ci when a lockfile is present, fallback to npm install
-RUN npm ci || npm install
+RUN if [ -f package-lock.json ]; then \
+      npm ci; \
+    else \
+      npm install; \
+    fi
 
 # Bundle app source
 COPY . .
