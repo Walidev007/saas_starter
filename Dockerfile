@@ -18,7 +18,9 @@ COPY . .
 RUN if [ -f package.json ] && grep -q "\"build\"" package.json; then npm run build; fi || true
 
 ENV NODE_ENV=production
-EXPOSE 3000
+# Set default port for the containerized app
+ENV PORT=7909
+EXPOSE 7909
 
-# Default command — expects a "start" script in package.json
+# Default command — expects a "start" script in package.json which respects process.env.PORT
 CMD ["sh", "-c", "npm run start"]

@@ -4,9 +4,10 @@ services:
   web:
     build: .
     ports:
-      - "3000:3000"
+      - "7909:7909"
     environment:
       - NODE_ENV=production
+      - PORT=7909
     restart: unless-stopped
     # For local development you may want to uncomment the volume below
     # volumes:
