@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    # For local development you may want to uncomment the volume below
+    # volumes:
+    #   - .:/app
+    # If your app listens on a different port or requires extra services (DB, Redis),
+    # add them here and adjust the ports/env accordingly.
